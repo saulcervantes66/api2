@@ -1,10 +1,12 @@
 
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
 
 const cors = require('cors');
 app.use(cors());
-const morgan = require('morgan');
+
+
 app.use(morgan('dev'));
 
 app.use(express.json());
@@ -30,7 +32,7 @@ app.get('/hola', (req, res) => {
     );
 })
 
-//rutas responde el servidor a está ruta
+//rutas responde el servidor a estï¿½ ruta
 app.get('/mensaje', (req, res) => {
     res.json(
         {
@@ -47,17 +49,17 @@ app.listen(app.get('port'), () => {
     console.log("mi primer servidor");
 });
 
-//variables en la api suma de dos números
-//para enviar información al servidor usamos el metodo post
+//variables en la api suma de dos nï¿½meros
+//para enviar informaciï¿½n al servidor usamos el metodo post
 app.post('/sumar', (req, res) => {//http://localhost/sumar
     const { num1, num2 } = req.body; //se aclaran los datos de entrada
 
-    //validar que se hayan enviado los dos números que no esten vacios
+    //validar que se hayan enviado los dos nï¿½meros que no esten vacios
     if (!num1 || !num2) {
-        return res.status(4000).send({ error: "Faltan números para súmar" });
+        return res.status(4000).send({ error: "Faltan nï¿½meros para sï¿½mar" });
     }
 
-    //Sumar los números
+    //Sumar los nï¿½meros
     const resultado = num1 + num2;
 
     //enviar el resultado 
@@ -67,11 +69,11 @@ app.post('/sumar', (req, res) => {//http://localhost/sumar
 app.post('/edad', (req, res) => { //http://localhost:4000/sumar
     const { anacimiento, aactual } = req.body; //se declaran los datos de entrada
 
-    //Validar que se hayan enviado los dos números que no esten vacios
+    //Validar que se hayan enviado los dos nï¿½meros que no esten vacios
     if (!anacimiento || !aactual) {
-        return res.status(4000).send({ error: 'Faltan números para sumar' });
+        return res.status(4000).send({ error: 'Faltan nï¿½meros para sumar' });
     }
-    //sumar números 
+    //sumar nï¿½meros 
     const edad = aactual - anacimiento;
 
     //Enviar el resultado
